@@ -13,7 +13,7 @@ const fakeUsers = require("../dummyData/fakeUsers")["users"];
 exports.seed = function(knex, Promise) {
   // const fakeUsers = [];
 
-  // for (let i = 0; i < 30; i++) {
+  // for (let i = 0; i <1000; i++) {
   //   fakeUsers.push(createFakeUser());
   // }
 

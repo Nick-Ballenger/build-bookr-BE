@@ -2,13 +2,14 @@ exports.up = function(knex, Promise) {
   return knex.schema
     .createTable("users", table => {
       table.increments();
-      table.string("first_name", 30).notNullable();
+      table.string("first_name", 120).notNullable();
       table.string("last_name", 40).notNullable();
       table
         .string("username", 30)
         .notNullable()
         .unique();
       table.string("password", 100).notNullable();
+      table.boolean("completed")
       table
         .string("thumbnail_url", 256)
         .defaultTo("https://pbs.twimg.com/media/C8QsNInXUAAyjZQ.jpg");
@@ -22,7 +23,7 @@ exports.up = function(knex, Promise) {
         .notNullable()
         .onDelete("CASCADE")
         .onUpdate("CASCADE");
-      table.string("author", 40).notNullable();
+      table.string("author", 90).notNullable();
       table.string("title", 40).notNullable();
       table.float("price").notNullable();
       table.string("publisher", 40).notNullable();
@@ -48,6 +49,7 @@ exports.up = function(knex, Promise) {
         .onDelete("CASCADE")
         .onUpdate("CASCADE");
     });
+    
 };
 
 exports.down = function(knex, Promise) {
